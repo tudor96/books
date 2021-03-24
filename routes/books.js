@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Book = mongoose.model("book");
-
 const createBooksObject = () => {
   const obj = [];
   for (let i = 0; i < 100; i++) {

@@ -8,10 +8,10 @@ const user = {
     tags: ["api"],
 
     handler: async (request, h) => {
-      try {
-        return h.response(docs).code(200);
-      } catch (error) {
-        return h.response(err).code(400);
+      if (mongoose.connection.readyState === 1) {
+        return h.response("connected").code(200);
+      } else {
+        return h.response("bad connection").code(500);
       }
     },
   },
