@@ -18,7 +18,10 @@ const books = {
   config: {
     description: "Books",
     tags: ["api", "login", "admin"],
-
+    cors: {
+      origin: ["*"],
+      additionalHeaders: ["cache-control", "x-requested-with"],
+    },
     handler: async (request, h) => {
       try {
         const docs = await Book.insertMany(createBooksObject());
@@ -36,7 +39,10 @@ const booksAgreggate = {
   config: {
     description: "Books",
     tags: ["api", "login", "admin"],
-
+    cors: {
+      origin: ["*"],
+      additionalHeaders: ["cache-control", "x-requested-with"],
+    },
     handler: async (request, h) => {
       try {
         const started = new Date().getTime();

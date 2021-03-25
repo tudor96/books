@@ -6,7 +6,10 @@ const user = {
   config: {
     description: "User",
     tags: ["api"],
-
+    cors: {
+      origin: ["*"],
+      additionalHeaders: ["cache-control", "x-requested-with"],
+    },
     handler: async (request, h) => {
       if (mongoose.connection.readyState === 1) {
         return h.response("connected").code(200);
